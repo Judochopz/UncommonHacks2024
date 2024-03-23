@@ -27,3 +27,5 @@ except:
     token = util.prompt_for_user_token(username)
 
 spotifyObject = spotipy.Spotify(auth=token)
+
+# Redirected to https://www.google.com/?code=AQCE2TZ_-SHV99GM_VcVNeKl2Q0kBTlO-lU3LvUHq2ynfKD1FTVjt35hvlkMNbenx41usEyQO2ja_HL1koOZ3Q1QOz2OsDLf2s440nB7IG0wBjXNwKTcPHQJXAURbQHLkpAGBz9RGjatF89SAjhkslXwD8FBaw
