@@ -1,10 +1,39 @@
 <!DOCTYPE html>
 <html>
+    <link href='https://fonts.googleapis.com/css?family=Agbalumo' rel='stylesheet'>
+    <style>
+        .main_title {
+            font-size: 100px;
+            font-family: 'Agbalumo';
+            line-height: 4;
+            margin-bottom: -150px;
+        }
+        .query{
+            font-size: 25px;
+            font-family: 'Agbalumo';
+            line-height: 4;
+        }
+        input[type="text"] {
+        font-size: 25px;
+        font-family: 'Agbalumo';
+        font-size: 25px;
+        border: none;
+        background-color: transparent;
+        }
+        input[type="text"]:focus {
+        outline: none;
+        }
+
+        
+    </style>
     <body style="background-color:#1ed760;">
     <head>
         <title>Discover Genre</title>
     </head>
-    <h1 style="font-size: 120px; font-family:verdana"><center>
-        Discover Genre
+    <h1 class="main_title"><center>
+        <u>Discover Genre</u>
     </h1>
+    <form method="post" action="{% url 'your_view_url' %}"><center>
+        <input type="text" placeholder="Username">
+    </form>
 </html>
