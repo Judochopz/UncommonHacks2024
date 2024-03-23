@@ -8,32 +8,39 @@
             line-height: 4;
             margin-bottom: -150px;
         }
-        .query{
+
+        @keyframes blink {
+            0% { opacity: 1; }
+            50% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+        input[type="text"]{
+            text-align: center;
             font-size: 25px;
             font-family: 'Agbalumo';
-            line-height: 4;
+            font-size: 25px;
+            border: none;
+            background-color: transparent;
         }
         input[type="text"] {
-        font-size: 25px;
-        font-family: 'Agbalumo';
-        font-size: 25px;
-        border: none;
-        background-color: transparent;
+            outline: none;
         }
-        input[type="text"]:focus {
-        outline: none;
+        .username_input::placeholder{
+            text-align: center;
+            color: #000;
+            animation: blink 2s infinite;
         }
 
-        
     </style>
-    <body style="background-color:#1ed760;">
     <head>
         <title>Discover Genre</title>
     </head>
-    <h1 class="main_title"><center>
-        <u>Discover Genre</u>
-    </h1>
-    <form method="post" action="{% url 'your_view_url' %}"><center>
-        <input type="text" placeholder="Username">
-    </form>
+    <body style="background-color:#1ed760;">
+        <h1 class="main_title"><center>
+            <u>Discover Genre</u>
+        </h1>
+        <form method="post"><center>
+            <input type="text" class="username_input" placeholder="Username">
+        </form>
+    </body>
 </html>
