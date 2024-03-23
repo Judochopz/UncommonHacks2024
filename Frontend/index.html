@@ -6,13 +6,13 @@
             font-size: 100px;
             font-family: 'Agbalumo';
             line-height: 4;
-            margin-bottom: -150px;
+            margin-bottom: -125px;
         }
 
         @keyframes blink {
-            0% { opacity: 1; }
-            50% { opacity: 0; }
-            100% { opacity: 1; }
+            0% { opacity: 0; }
+            50% { opacity: 1; }
+            100% { opacity: 0; }
         }
         input[type="text"]{
             text-align: center;
@@ -21,15 +21,16 @@
             font-size: 25px;
             border: none;
             background-color: transparent;
-        }
-        input[type="text"] {
             outline: none;
         }
-        .username_input::placeholder{
-            text-align: center;
-            color: #000;
+        .blink:not(:focus){
             animation: blink 2s infinite;
         }
+        input[type="text"]::placeholder{
+            text-align: center;
+            color: #000;
+        }
+
 
     </style>
     <head>
@@ -40,7 +41,7 @@
             <u>Discover Genre</u>
         </h1>
         <form method="post"><center>
-            <input type="text" class="username_input" placeholder="Username">
+            <input type="text" class="blink" placeholder="Username">
         </form>
     </body>
 </html>
