@@ -12,13 +12,15 @@ from spotipy.oauth2 import SpotifyOAuth
 username = sys.argv[1]
 
 # Load environment variables from .env file
-load_dotenv()
+load_dotenv(".env")
 
 # Import environment variables from .env
 client_id = os.getenv("SPOTIPY_CLIENT_ID")
 client_secret = os.getenv("SPOTIPY_CLIENT_SECRET")
 redirect_uri = os.getenv("SPOTIPY_REDIRECT_URI")
 
+# Save scope
+scope = "user-library-read"
 
 # Erase cache and prompt for user permission
 try:
@@ -29,22 +31,24 @@ except:
 
 spotifyObject = spotipy.Spotify(auth=token)
 
-# Redirected to https://www.google.com/?code=AQCE2TZ_-SHV99GM_VcVNeKl2Q0kBTlO-lU3LvUHq2ynfKD1FTVjt35hvlkMNbenx41usEyQO2ja_HL1koOZ3Q1QOz2OsDLf2s440nB7IG0wBjXNwKTcPHQJXAURbQHLkpAGBz9RGjatF89SAjhkslXwD8FBaw
-
 user = spotifyObject.current_user()
 print(json.dumps(user, sort_keys=True, indent=4))
 
+displayName = user['display_name']
 
-sp = SpotifyOAuth (
-        client_id = os.getenv('SPOTIFY_CLIENT_ID'),
-        client_secret = os.getenv('SPOTIFY_CLIENT_SECRET'),
-        redirect_uri=url_for('authorize', _external=True),
-        scope="user-library-read user-top-read"
-    ) 
-# # Get the user's saved tracks
-# results = user.current_user_saved_tracks()
+sp = spotipy.Spotify(
+        auth_manager=SpotifyOAuth(
+            client_id=client_id,
+            client_secret=client_secret,
+            redirect_uri=redirect_uri,
+            scope=scope
+        )
+    )
 
-# # Iterate over saved tracks and print their names
-# for idx, item in enumerate(results['items']):
-#     track = item['track']
-#     print(idx + 1, track['artists'][0]['name'], "–", track['name'])
+sp_user = sp.current_user()
+user_id = user["id"]
+
+results = sp.current_user_saved_tracks()
+for idx, item in enumerate(results['items']):
+    track = item['track']
+    print(idx, track['artists'][0]['name'], " – ", track['name'])
