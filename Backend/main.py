@@ -49,8 +49,11 @@ def main(userID):
             for feature in track_features:
                 potential_track_vectors[feature].append(track_audio_features[feature])
             potential_track_vectors['genre'].append(set(sp.artists([track['artists'][0]['id']])['artists'][0]['genres']))
-    potential_recommended = pd.DataFrame(potential_track_vectors)        
-    
+    potential_recommended = pd.DataFrame(potential_track_vectors)
+
+    track_history.to_csv("track_history.csv")
+    potential_recommended.to_csv("potential_recommended.csv")
+
 
 if __name__ == "__main__":
     while(True):
