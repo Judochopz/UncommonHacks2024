@@ -1,37 +1,42 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
     <link href='https://fonts.googleapis.com/css?family=Agbalumo' rel='stylesheet'>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Discover Genre</title>
     <style>
-        .main_title {
+        #topLeftImage {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100px; /* Adjust width as needed */
+            height: auto; /* Maintain aspect ratio */
+            padding: 20px;
+        }
+        .title {
             font-size: 100px;
             font-family: 'Agbalumo';
             line-height: .25;
             margin-bottom: 90px;
-        }
-
-        input[type="text"]{
             text-align: center;
-            font-size: 55px;
+        }
+        .instructions {
+            font-size: 75px;
             font-family: 'Agbalumo';
-            border: none;
-            background-color: transparent;
-            outline: none;
-            color: black;
-            
+            text-align: center;
+            align-content: center;
+            padding: 5px;
+            background: #19b954;
+            border-radius: 80px;
         }
-        .username_input::placeholder {
-            color: black;
-        }
-
         .grid-container {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 10px;
-            margin-top: 70px;
+            margin-top: 50px;
         }
-
-        /* Button style */
-        .grid-item {
+        .button {
             border: none;
             background-color: #19b954;
             color: black;
@@ -44,89 +49,70 @@
             transition: background-color 0.3s ease;
         }
 
-        /* Button hover effect */
-        .grid-item:hover {
+        .button:hover {
             background-color: #000;
             color: #19b954;
         }
-
-
     </style>
-    <head>
-        <title>Discover Genre</title>
-    </head>
-    <body style="background-color:#1ed760;">
-        <div>
-            <h1 class="main_title"><center>
-                <u>Discover Genre</u>
-            </h1>
-        </div>
-        <div>
-            <form action="{% url 'process_user_input_data' %}" method="post"><center>
-                <!-- Hidden input fields to store button-specific data -->
-                <input type="hidden" id="button1Data" name="genre_data">
-                <input type="hidden" id="button2Data" name="genre_data">
-                <input type="hidden" id="button3Data" name="genre_data">
-                <input type="hidden" id="button4Data" name="genre_data">
-                <input type="hidden" id="button5Data" name="genre_data">
-                <input type="hidden" id="button6Data" name="genre_data">
-                <input type="hidden" id="button7Data" name="genre_data">
-                <input type="hidden" id="button8Data" name="genre_data">
-                <input type="hidden" id="button9Data" name="genre_data">
+</head>
+<body style="background-color:#1ed760;">
+    <a href="https://open.spotify.com/">
+        <img id="topLeftImage" src="Spotify_App_Logo.png" alt="Top Left Image">
+    </a>
+    <h1 class="title">
+        <u>Discover Genre</u>
+    </h1>
+    <h2 class = "instructions"><center>
+        Pick a Genre
+    </h2>
+    <div id="button-grid" class="grid-container">
+        <button class="button" onclick="sendData('pop')">Pop</button>
+        <button class="button" onclick="sendData('rock')">Rock</button>
+        <button class="button" onclick="sendData('rap')">Rap</button>
+        <button class="button" onclick="sendData('hip-hop')">Hip-Hop</button>
+        <button class="button" onclick="sendData('country')">Country</button>
+        <button class="button" onclick="sendData('alt-rock')">Alt-Rock</button>
+        <button class="button" onclick="sendData('classical')">Classical</button>
+        <button class="button" onclick="sendData('jazz')">Jazz</button>
+        <button class="button" onclick="sendData('k-pop')">K-pop</button>
+    </div>
 
-                <input type="text" class = "username_input" placeholder="Spotify Username Here">
-                <div class="grid-container">
-                    <!-- Grid buttons -->
-                    <button type="submit" class="grid-item" onclick="setButtonData('button1')">Alt-Rock</button>
-                    <button type="submit" class="grid-item" onclick="setButtonData('button2')">Classical</button>
-                    <button type="submit" class="grid-item" onclick="setButtonData('button3')">Country</button>
-                    <button type="submit" class="grid-item" onclick="setButtonData('button4')">Hip-Hop</button>
-                    <button type="submit" class="grid-item" onclick="setButtonData('button5')">Jazz</button>
-                    <button type="submit" class="grid-item" onclick="setButtonData('button6')">K-pop</button>
-                    <button type="submit" class="grid-item" onclick="setButtonData('button7')">Pop</button>
-                    <button type="submit" class="grid-item" onclick="setButtonData('button8')">Rap</button>
-                    <button type="submit" class="grid-item" onclick="setButtonData('button9')">Rock</button>
-                </div>
-            </form>
-        </div>
-        <script>
-            function setButtonData(buttonId) {
-              // Get the value associated with the button
-              var buttonValue = '';
-          
-              // Set different data for each button
-              switch(buttonId) {
-                case 'button1':
-                  buttonValue = 'Data for Button 1';
-                  break;
-                case 'button2':
-                  buttonValue = 'Data for Button 2';
-                  break;
-                case 'button3':
-                  buttonValue = 'Data for Button 3';
-                  break;
-                case 'button4':
-                  buttonValue = 'Data for Button 4';
-                  break;
-                case 'button5':
-                  buttonValue = 'Data for Button 5';
-                  break;
-                case 'button6':
-                  buttonValue = 'Data for Button 6';
-                  break;
-                case 'button7':
-                  buttonValue = 'Data for Button 7';
-                  break;
-                case 'button8':
-                  buttonValue = 'Data for Button 8';
-                  break;
-                case 'button9':
-                  buttonValue = 'Data for Button 9';
-                  break;
-              }
-              // Set the value of the hidden input field corresponding to the button
-              document.getElementById(buttonId + 'Data').value = buttonValue;
-            }
-          </script>
-    </body>
+    <script>
+        function sendData(data) {
+            // Simulate sending data to Django
+            console.log('Sending data:', data);
+            const requestBody = { button_data: data };
+
+            // Send POST request using fetch API
+            fetch('/button_clicked/', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRFToken': getCookie('csrftoken') // Ensure to replace getCookie with your actual function to get CSRF token
+                },
+                body: JSON.stringify(requestBody)
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.text();
+            })
+            .then(data => {
+                console.log('Response from Django:', data);
+                // Handle response if needed
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+        }
+
+        // Function to get CSRF token from cookie
+        function getCookie(name) {
+            const value = `; ${document.cookie}`;
+            const parts = value.split(`; ${name}=`);
+            if (parts.length === 2) return parts.pop().split(';').shift();
+        }
+    </script>
+</body>
 </html>
