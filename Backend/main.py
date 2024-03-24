@@ -64,12 +64,12 @@ def main(userID):
                 potential_track_vectors['genre'].append(set(sp.artists([track['artists'][0]['id']])['artists'][0]['genres']))
         return pd.DataFrame(potential_track_vectors)
     # Multi-threading for faster API calling
-    # with ThreadPool(1) as p:
+    # with ThreadPool(3) as p:
     #     vec = p.map(potential_recommended_songs, related_artist_list)
     # potential_recommended = pd.concat(vec)
     potential_recommended = potential_recommended_songs(related_artist_list)
-    track_history.to_csv("sampleCSVs/track_history.csv")
-    potential_recommended.to_csv("sampleCSVs/potential_recommended.csv")
+    track_history.to_csv("sampleCSVs/track_history2csv")
+    potential_recommended.to_csv("sampleCSVs/potential_recommended2.csv")
 
 
 if __name__ == "__main__":
