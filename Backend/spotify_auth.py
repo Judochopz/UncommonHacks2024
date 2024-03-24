@@ -9,9 +9,6 @@ from dotenv import load_dotenv
 from spotipy.oauth2 import SpotifyOAuth
 
 def spotifyAuth(username):
-    # Get username from terminal
-    # username = sys.argv[1]
-
     # Load environment variables from .env file
     load_dotenv(".env")
 
@@ -32,10 +29,8 @@ def spotifyAuth(username):
     spotifyObject = spotipy.Spotify(auth=token)
 
     user = spotifyObject.current_user()
-    # print(json.dumps(user, sort_keys=True, indent=4))
-
-    # displayName = user['display_name']
-
+    
+    # Create spotipy object for API calls
     sp = spotipy.Spotify(
             auth_manager=SpotifyOAuth(
                 client_id=client_id,
