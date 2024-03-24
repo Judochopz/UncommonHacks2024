@@ -1,0 +1,11 @@
+,name,artist,artist_id,acousticness,danceability,duration_ms,energy,instrumentalness,liveness,loudness,mode,speechiness,tempo,time_signature,valence,analysis_url,genre
+0,Killin’ Me Good,JIHYO,7F1iAHRYxR3MY7yAEuFqgL,0.204,0.745,185920,0.918,0.0,0.0449,-0.683,1,0.0741,111.966,4,0.647,https://api.spotify.com/v1/audio-analysis/4Cyf87ul1le0xTWRFBoYd7,set()
+1,アイドル,YOASOBI,64tJ2EAv1R6UaZqc4iOCyj,0.112,0.574,213234,0.935,1.07e-06,0.367,-2.783,1,0.0926,166.008,4,0.836,https://api.spotify.com/v1/audio-analysis/7ovUcF5uHTBRzUpB6ZOmvt,"{'japanese teen pop', 'j-pop'}"
+2,Talk that Talk,TWICE,7n2Ycct7Beij7Dj7meI4X0,0.136,0.772,177467,0.907,0.0,0.334,-2.438,0,0.124,119.973,4,0.783,https://api.spotify.com/v1/audio-analysis/0RDqNCRBGrSegk16Avfzuq,"{'k-pop girl group', 'k-pop', 'pop'}"
+3,I CAN'T STOP ME,TWICE,7n2Ycct7Beij7Dj7meI4X0,0.121,0.657,205493,0.88,0.0,0.463,-3.672,0,0.102,150.084,4,0.769,https://api.spotify.com/v1/audio-analysis/37ZtpRBkHcaq6hHy0X98zn,"{'k-pop girl group', 'k-pop', 'pop'}"
+4,"Eve, Psyche & The Bluebeard’s wife",LE SSERAFIM,4SpbR6yFEvexJuaBpgAU5p,0.0153,0.663,185539,0.872,0.0,0.0519,-5.056,1,0.2,142.951,4,0.626,https://api.spotify.com/v1/audio-analysis/4QhnNyKDsAkXPwHkSnuc89,{'k-pop girl group'}
+5,The Feels,TWICE,7n2Ycct7Beij7Dj7meI4X0,0.0899,0.808,198053,0.903,0.0,0.0816,-2.179,1,0.0729,120.044,4,0.922,https://api.spotify.com/v1/audio-analysis/308Ir17KlNdlrbVLHWhlLe,"{'k-pop girl group', 'k-pop', 'pop'}"
+6,SET ME FREE,TWICE,7n2Ycct7Beij7Dj7meI4X0,0.0966,0.756,181680,0.831,0.0,0.0499,-2.536,0,0.141,113.025,4,0.703,https://api.spotify.com/v1/audio-analysis/4OtVQ2ZxS7yigIjGz5yKg1,"{'k-pop girl group', 'k-pop', 'pop'}"
+7,Red Flavor,Red Velvet,1z4g3DjTBBZKhvAroFlhOM,0.0409,0.709,191139,0.917,0.0,0.0839,-3.315,1,0.189,125.042,4,0.515,https://api.spotify.com/v1/audio-analysis/7nKQ5WAcjnG48knyLuo8gO,"{'k-pop girl group', 'k-pop'}"
+8,Boy With Luv (feat. Halsey),BTS,3Nrfpe0tUJi4K4DXYWgMUX,0.0933,0.645,229773,0.862,0.0,0.193,-4.761,0,0.0845,119.947,4,0.803,https://api.spotify.com/v1/audio-analysis/4a9tbd947vo9K8Vti9JwcI,"{'k-pop boy group', 'k-pop', 'pop'}"
+9,MOONLIGHT SUNRISE,TWICE,7n2Ycct7Beij7Dj7meI4X0,0.392,0.749,180320,0.781,2.12e-06,0.086,-3.265,1,0.0578,125.09,4,0.606,https://api.spotify.com/v1/audio-analysis/5NcLyVjUgG0yfwHgr5t81w,"{'k-pop girl group', 'k-pop', 'pop'}"
