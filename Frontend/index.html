@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+    <link href='https://fonts.googleapis.com/css?family=Agbalumo' rel='stylesheet'>
+    <style>
+        .main_title {
+            font-size: 100px;
+            font-family: 'Agbalumo';
+            line-height: .25;
+            margin-bottom: 90px;
+        }
+
+        input[type="text"]{
+            text-align: center;
+            font-size: 55px;
+            font-family: 'Agbalumo';
+            border: none;
+            background-color: transparent;
+            outline: none;
+            color: black;
+            
+        }
+        .username_input::placeholder {
+            color: black;
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            margin-top: 70px;
+        }
+
+        /* Button style */
+        .grid-item {
+            border: none;
+            background-color: #19b954;
+            color: black;
+            font-weight: bold;
+            font-size: 45px;
+            font-family: 'Agbalumo';
+            text-align: center;
+            padding: 20px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        /* Button hover effect */
+        .grid-item:hover {
+            background-color: #000;
+            color: #19b954;
+        }
+
+
+    </style>
+    <head>
+        <title>Discover Genre</title>
+    </head>
+    <body style="background-color:#1ed760;">
+        <div>
+            <h1 class="main_title"><center>
+                <u>Discover Genre</u>
+            </h1>
+        </div>
+        <div>
+            <form action="{% url 'process_user_input_data' %}" method="post"><center>
+                <!-- Hidden input fields to store button-specific data -->
+                <input type="hidden" id="button1Data" name="genre_data">
+                <input type="hidden" id="button2Data" name="genre_data">
+                <input type="hidden" id="button3Data" name="genre_data">
+                <input type="hidden" id="button4Data" name="genre_data">
+                <input type="hidden" id="button5Data" name="genre_data">
+                <input type="hidden" id="button6Data" name="genre_data">
+                <input type="hidden" id="button7Data" name="genre_data">
+                <input type="hidden" id="button8Data" name="genre_data">
+                <input type="hidden" id="button9Data" name="genre_data">
+
+                <input type="text" class = "username_input" placeholder="Spotify Username Here">
+                <div class="grid-container">
+                    <!-- Grid buttons -->
+                    <button type="submit" class="grid-item" onclick="setButtonData('button1')">Alt-Rock</button>
+                    <button type="submit" class="grid-item" onclick="setButtonData('button2')">Classical</button>
+                    <button type="submit" class="grid-item" onclick="setButtonData('button3')">Country</button>
+                    <button type="submit" class="grid-item" onclick="setButtonData('button4')">Hip-Hop</button>
+                    <button type="submit" class="grid-item" onclick="setButtonData('button5')">Jazz</button>
+                    <button type="submit" class="grid-item" onclick="setButtonData('button6')">K-pop</button>
+                    <button type="submit" class="grid-item" onclick="setButtonData('button7')">Pop</button>
+                    <button type="submit" class="grid-item" onclick="setButtonData('button8')">Rap</button>
+                    <button type="submit" class="grid-item" onclick="setButtonData('button9')">Rock</button>
+                </div>
+            </form>
+        </div>
+        <script>
+            function setButtonData(buttonId) {
+              // Get the value associated with the button
+              var buttonValue = '';
+          
+              // Set different data for each button
+              switch(buttonId) {
+                case 'button1':
+                  buttonValue = 'Data for Button 1';
+                  break;
+                case 'button2':
+                  buttonValue = 'Data for Button 2';
+                  break;
+                case 'button3':
+                  buttonValue = 'Data for Button 3';
+                  break;
+                case 'button4':
+                  buttonValue = 'Data for Button 4';
+                  break;
+                case 'button5':
+                  buttonValue = 'Data for Button 5';
+                  break;
+                case 'button6':
+                  buttonValue = 'Data for Button 6';
+                  break;
+                case 'button7':
+                  buttonValue = 'Data for Button 7';
+                  break;
+                case 'button8':
+                  buttonValue = 'Data for Button 8';
+                  break;
+                case 'button9':
+                  buttonValue = 'Data for Button 9';
+                  break;
+              }
+              // Set the value of the hidden input field corresponding to the button
+              document.getElementById(buttonId + 'Data').value = buttonValue;
+            }
+          </script>
+    </body>
+</html>

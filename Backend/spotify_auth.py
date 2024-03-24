@@ -19,7 +19,7 @@ def spotifyAuth(username):
     client_id = os.getenv("SPOTIPY_CLIENT_ID")
     client_secret = os.getenv("SPOTIPY_CLIENT_SECRET")
     redirect_uri = os.getenv("SPOTIPY_REDIRECT_URI")
-
+    print(client_id, client_secret, redirect_uri)
     # Save scope
     scope = "user-read-recently-played user-top-read"
 
