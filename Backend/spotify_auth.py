@@ -21,7 +21,7 @@ def spotifyAuth(username):
     redirect_uri = os.getenv("SPOTIPY_REDIRECT_URI")
     print(client_id, client_secret, redirect_uri)
     # Save scope
-    scope = "user-read-recently-played user-top-read "
+    scope = "user-read-recently-played user-top-read"
 
     # Erase cache and prompt for user permission
     try:
