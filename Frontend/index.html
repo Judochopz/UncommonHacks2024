@@ -65,17 +65,17 @@
         <h1 class="main_title"><center>
             <u>Discover Genre</u>
         </h1>
-        <form method="post"><center>
+        <form action="{% url 'process_user_input_data' %}" method="post"><center>
             <!-- Hidden input fields to store button-specific data -->
-            <input type="hidden" id="button1Data" name="buttonData">
-            <input type="hidden" id="button2Data" name="buttonData">
-            <input type="hidden" id="button3Data" name="buttonData">
-            <input type="hidden" id="button4Data" name="buttonData">
-            <input type="hidden" id="button5Data" name="buttonData">
-            <input type="hidden" id="button6Data" name="buttonData">
-            <input type="hidden" id="button7Data" name="buttonData">
-            <input type="hidden" id="button8Data" name="buttonData">
-            <input type="hidden" id="button9Data" name="buttonData">
+            <input type="hidden" id="button1Data" name="genre_data">
+            <input type="hidden" id="button2Data" name="genre_data">
+            <input type="hidden" id="button3Data" name="genre_data">
+            <input type="hidden" id="button4Data" name="genre_data">
+            <input type="hidden" id="button5Data" name="genre_data">
+            <input type="hidden" id="button6Data" name="genre_data">
+            <input type="hidden" id="button7Data" name="genre_data">
+            <input type="hidden" id="button8Data" name="genre_data">
+            <input type="hidden" id="button9Data" name="genre_data">
 
             <input type="text" class="blink" placeholder="Username">
             <div class="grid-container">
