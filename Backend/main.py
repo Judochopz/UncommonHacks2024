@@ -2,10 +2,15 @@ import spotify_auth
 import pandas as pd
 
 def main(userID):
+    # Take in spotipy object and user object
     sp, user = spotify_auth.spotifyAuth(userID)
 
+    # Find top 10 songs of user
     top_songs = sp.current_user_top_tracks(limit=10, time_range="long_term")
+    # Create set to determine top artists potential songs
     top_related_artists = set()
+    # Create set to prevent top 10 songs from being placed in potential recommended songs
+    top_ten_songs = set()
 
     # Create dictionary for track vectors for pd.DataFrame conversion
     track_features = ['acousticness', 'danceability', 'duration_ms', 'energy', 
@@ -21,6 +26,7 @@ def main(userID):
 
     # Iterate through top songs of user
     for track in top_songs['items']:
+        top_ten_songs.add(track['id'])
         related_artists = sp.artist_related_artists(track['artists'][0]['id'])['artists']
         for artist in related_artists[:5]:
             top_related_artists.add(artist['id'])
@@ -42,6 +48,8 @@ def main(userID):
     while top_related_artists:
         artist_tracks = sp.artist_top_tracks(top_related_artists.pop())['tracks']
         for track in artist_tracks:
+            if track['id'] in top_ten_songs:
+                continue
             track_audio_features = sp.audio_features(track['id'])[0]
             potential_track_vectors['name'].append(track['name'])
             potential_track_vectors['artist'].append(track['artists'][0]['name'])
@@ -51,8 +59,8 @@ def main(userID):
             potential_track_vectors['genre'].append(set(sp.artists([track['artists'][0]['id']])['artists'][0]['genres']))
     potential_recommended = pd.DataFrame(potential_track_vectors)
 
-    track_history.to_csv("track_history.csv")
-    potential_recommended.to_csv("potential_recommended.csv")
+    track_history.to_csv("sampleCSVs/track_history.csv")
+    potential_recommended.to_csv("sampleCSVs/potential_recommended.csv")
 
 
 if __name__ == "__main__":
